@@ -2,3 +2,15 @@
 .fixed-table-loading{
   display: none;
 }
+
+body {
+    background-color: #313537;
+}
+thead {
+    background-color: rgba(0,0,0,0.5);
+    COLOR: white;
+}
+
+tbody{
+  background-color: #ffffff;
+}
