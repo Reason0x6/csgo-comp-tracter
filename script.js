@@ -1,40 +1,15 @@
  var $table = $('#table')
-$.get( "/jQuery.ajax/", function( data ) {
-  console.log( typeof data ); // string
-  console.log( data ); // HTML content of the jQuery.ajax page
-});
+
   $(function() {
-    var data = [
-      {
-        'id': 0,
-        'name': 'Item 0',
-        'price': '$0'
-      },
-      {
-        'id': 1,
-        'name': 'Item 1',
-        'price': '$1'
-      },
-      {
-        'id': 2,
-        'name': 'Item 2',
-        'price': '$2'
-      },
-      {
-        'id': 3,
-        'name': 'Item 3',
-        'price': '$3'
-      },
-      {
-        'id': 4,
-        'name': 'Item 4',
-        'price': '$4'
-      },
-      {
-        'id': 5,
-        'name': 'Item 5',
-        'price': '$5'
-      }
-    ]
+    var data = [httpGet(https://gist.githubusercontent.com/Reason0x6/8cda7cdce846941a4d9956606ad255e2/raw/46762ca4ea607a6a43ae7ccd95edf3ff16004d09/IEM_DAT)]
     $table.bootstrapTable({data: data})
   })
+
+
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
