@@ -18,7 +18,7 @@ $.get(
            field: 'team2',
            title: 'Team 2'
          }],
-         data: [JSON.parse(db)]
+         data: [JSON.parse(str.replace("\",db))]
     });
     }
 );
