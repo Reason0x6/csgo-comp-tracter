@@ -19,5 +19,5 @@ $.get(
            title: 'Team 2'
          }],
          data: [db]
-    })
+    });
 );
