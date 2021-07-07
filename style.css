@@ -14,3 +14,7 @@ thead {
 tbody{
   background-color: #ffffff;
 }
+
+table, tr, td {
+    border: none;
+}
