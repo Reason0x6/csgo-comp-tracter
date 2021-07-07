@@ -1,5 +1,8 @@
  var $table = $('#table')
-
+$.get( "/jQuery.ajax/", function( data ) {
+  console.log( typeof data ); // string
+  console.log( data ); // HTML content of the jQuery.ajax page
+});
   $(function() {
     var data = [
       {
