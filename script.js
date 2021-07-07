@@ -18,7 +18,7 @@ $.get(
            field: 'team2',
            title: 'Team 2'
          }],
-         data: [db]
+         data: [JSON.parse(db)]
     });
     }
 );
