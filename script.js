@@ -30,7 +30,7 @@ $.get(
 $.get(
     "https://gist.githubusercontent.com/Reason0x6/2ef9ade8af06347df6cb7dc8c2708b90/raw",
     
-    function(db) {
+    function(outcome) {
        $tables.bootstrapTable({
          columns: [{
            field: 'id',
@@ -47,7 +47,7 @@ $.get(
            field: 'team2',
            title: 'Team 2'
          }],
-         data: JSON.parse(db)
+         data: JSON.parse(outcome)
     });
     }
 );
