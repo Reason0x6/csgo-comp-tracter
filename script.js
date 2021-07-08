@@ -67,13 +67,13 @@ while(valid){
  i++;
  
  $.get(
-    "https://gist.githubusercontent.com/Reason0x6/2ef9ade8af06347df6cb7dc8c2708b90/raw",
+    voting_url,
     
     function(outcome) {
-       data = JSON.parse(outcome)
+       data = JSON.parse(outcome);
+       console.log(data);
     }
 );
- console.log(data);
  valid = false;
 }
 
