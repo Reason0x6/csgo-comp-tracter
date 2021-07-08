@@ -71,7 +71,7 @@ while(valid){
     
     function(outcome) {
        data = JSON.parse(outcome);
-       console.log(data);
+       console.log(outcome);
     }
 );
  valid = false;
