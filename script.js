@@ -29,8 +29,6 @@ $.get(
 
  var $tables = $('#results');
 
- 
-
 $.get(
     "https://gist.githubusercontent.com/Reason0x6/2ef9ade8af06347df6cb7dc8c2708b90/raw",
     
@@ -66,7 +64,7 @@ while(valid){
  var voting_url = "https://spreadsheets.google.com/feeds/cells/1notCppP0AXospf6d8bgxpZyjFw6ThDh1is-8rEjCxTQ/" + i + "/public/full?alt=json";
  i++;
  
- data= $.get( voting_url, "json");
+ data= $.get( voting_url, "json", function(outcome) {console.log(1)});
  
  valid = false;
 }
