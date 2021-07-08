@@ -1,4 +1,4 @@
- var $table = $('.table')
+ var $table = $('#table')
 
  
 
@@ -23,7 +23,7 @@ $.get(
     }
 );
 
- var $tables = $('.results')
+ var $tables = $('#results')
 
  
 
