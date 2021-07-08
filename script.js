@@ -66,14 +66,8 @@ while(valid){
  var voting_url = "https://spreadsheets.google.com/feeds/cells/1notCppP0AXospf6d8bgxpZyjFw6ThDh1is-8rEjCxTQ/" + i + "/public/full?alt=json";
  i++;
  
- $.get(
-    voting_url,
-    
-    function(outcome) {
-       data = JSON.parse(outcome);
-       console.log(outcome);
-    }
-);
+ data= $.get( voting_url, "json");
+ 
  valid = false;
 }
 
