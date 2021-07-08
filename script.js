@@ -28,7 +28,7 @@ $.get(
  
 
 $.get(
-    "https://gist.githubusercontent.com/Reason0x6/8cda7cdce846941a4d9956606ad255e2/raw",
+    "https://gist.githubusercontent.com/Reason0x6/2ef9ade8af06347df6cb7dc8c2708b90/raw",
     
     function(db) {
        $tables.bootstrapTable({
