@@ -74,6 +74,6 @@ while(valid){
     }
 );
  console.log(data);
- 
+ valid = false;
 }
 
