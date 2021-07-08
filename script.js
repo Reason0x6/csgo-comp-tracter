@@ -40,11 +40,11 @@ $.get(
            field: 'team1',
            title: 'Team 1'
          }, {
-           field: 'team2',
-           title: 'Team 2'
-         }, {
           field: 'score',
           title: 'Score'
+         }, {
+           field: 'team2',
+           title: 'Team 2'
          }],
          data: JSON.parse(db)
     });
