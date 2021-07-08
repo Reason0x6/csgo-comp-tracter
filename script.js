@@ -3,7 +3,7 @@
  
 
 $.get(
-    "https://gist.githubusercontent.com/Reason0x6/8cda7cdce846941a4d9956606ad255e2/raw/cb973ee1d0d6c53c4295c64aae628fee46450c01/IEM_DAT",
+    "https://gist.githubusercontent.com/Reason0x6/8cda7cdce846941a4d9956606ad255e2/raw",
     
     function(db) {
        $table.bootstrapTable({
