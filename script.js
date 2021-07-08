@@ -23,6 +23,31 @@ $.get(
     }
 );
 
+ var $tables = $('.results')
+
+ 
+
+$.get(
+    "https://gist.githubusercontent.com/Reason0x6/8cda7cdce846941a4d9956606ad255e2/raw",
+    
+    function(db) {
+       $tables.bootstrapTable({
+         columns: [{
+           field: 'id',
+           title: 'Game'
+         },
+           {
+           field: 'team1',
+           title: 'Team 1'
+         }, {
+           field: 'team2',
+           title: 'Team 2'
+         }],
+         data: JSON.parse(db)
+    });
+    }
+);
+
 
 /*
  var $table = $('.table')
