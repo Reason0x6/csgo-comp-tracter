@@ -8,8 +8,8 @@ $.get(
     function(db) {
        $table.bootstrapTable({
          columns: [{
-           field: 'id',
-           title: 'Game'
+           field: 'title',
+           title: 'Match'
          },
            {
            field: 'team1',
@@ -17,6 +17,9 @@ $.get(
          }, {
            field: 'team2',
            title: 'Team 2'
+         }, {
+           field: 'id',
+           title: 'Game ID'
          }],
          data: JSON.parse(db)
     });
@@ -33,8 +36,8 @@ $.get(
     function(outcome) {
        $tables.bootstrapTable({
          columns: [{
-           field: 'id',
-           title: 'Game'
+           field: 'title',
+           title: 'Match'
          },
            {
            field: 'team1',
@@ -46,6 +49,9 @@ $.get(
          }, {
            field: 'team2',
            title: 'Team 2'
+         }, {
+           field: 'id',
+           title: 'Game ID'
          }],
          data: JSON.parse(outcome)
     });
