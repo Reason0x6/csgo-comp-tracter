@@ -42,6 +42,9 @@ $.get(
          }, {
            field: 'team2',
            title: 'Team 2'
+         }, {
+          field: 'score',
+          title: 'Score'
          }],
          data: JSON.parse(db)
     });
