@@ -56,6 +56,7 @@ $.get(
      completed = JSON.parse(outcome);
     }
 );
+var overall = [];
 var keys = [];
 var points = [];
 var valid = 1;
@@ -82,6 +83,14 @@ while(valid < 10){
                 break;
                }
      }
+     var gm = []
+     for(var i = 1; i <= len; i++){
+         
+         if(Feed[i].gs$cell.col != "1" && Feed[i].gs$cell.col != "2"){
+                gm.push(Feed[i].gs$cell.inputVaue);
+         }
+     }
+    overall.push(gm);
     for(var i = 0; i < (len+1)*5; i++){
         
             if(Feed[i] != null && Feed[i].gs$cell.row != "1"){
@@ -94,7 +103,7 @@ while(valid < 10){
             }
             if(Feed[i].gs$cell.col == "2" && !(Name.includes(Feed[i].gs$cell.inputValue))){
                 Name.push(Feed[i].gs$cell.inputValue);
-                running.push(Feed[i].gs$cell.inputValue);
+               
             }else{
                 if(!((Feed[i].gs$cell.inputValue).includes("/"))){
                         running.push({
@@ -126,12 +135,11 @@ function compile(x,y,i){
     z = x;
     var w = [];
     w = y;
-
+    console.log(y);
 
     w.forEach(function(value){
        if(z.includes(value)){
             if(a != 0){
-
               list.push({
                key: currName,
                value: count});
@@ -151,7 +159,7 @@ function compile(x,y,i){
        key: currName,
        value: count
     });
-    
+    console.log(list)
    Rounds.push({
         key: i,
         value: list
@@ -205,17 +213,16 @@ Object.entries(Rounds['3'].value).forEach(([key, value]) => {
 
 function calculate(player, tips){
     
-    if(points[player] != null){
-        te = points[player];   
-    }else{
-     points.push({
-         key: player,
-         value: 0
-     });
-        te = 0;
-    }
+    
     for(var t in tips){
-        
+        if(tips[t].game == "2"){
+            if(points[tips[t].input] == null){
+                 points.push({
+                     key: tips[t].input,
+                     value: 0
+                 });
+                }
+            } 
     }
-    console.log(keys);
+    console.log(points);
 }
