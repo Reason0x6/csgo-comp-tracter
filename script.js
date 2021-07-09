@@ -63,7 +63,9 @@ var k = 1;
 var Name = [];
 var Rounds = [];
 var currRow = "";
+
 while(valid < 10){
+    
  var data = null
  var voting_url = "https://spreadsheets.google.com/feeds/cells/1notCppP0AXospf6d8bgxpZyjFw6ThDh1is-8rEjCxTQ/" + k + "/public/full?alt=json";
  k++;
@@ -71,30 +73,19 @@ while(valid < 10){
  data= $.get( voting_url, "json", function(outcome) {
     var running = [];
      
-    
+    var colcount = 0;
     Feed = outcome.feed.entry;
-     var colcount = 0;
+     
      for(var len = 0; len <= 25; len++){
-            if(String(Feed[len]).includes("/")){
+            if(Feed[len].gs$cell.row != "1"){
                colcount = len;
                 break;
                }
      }
     for(var i = 0; i < (len+1)*5; i++){
         
-        if(Feed[i] != null ){
-            if(Feed[i].gs$cell.row == "1"){
-                    if(Feed[i].gs$cell.col != "1" && Feed[i].gs$cell.col != "2"){
-                        
-                        for(var layer in completed){
-                            if(layer.id == Feed[i].gs$cell.inputValue){
-                               
-                            }
-                        }
-                        continue;
-                    }
-                 continue;
-               }
+            if(Feed[i] != null && Feed[i].gs$cell.row != "1"){
+                
             if( Feed[i].gs$cell.inputValue == "noDataParse"){
                 return;
             }
@@ -106,15 +97,18 @@ while(valid < 10){
                 running.push(Feed[i].gs$cell.inputValue);
             }else{
                 if(!((Feed[i].gs$cell.inputValue).includes("/"))){
-                        running.push(Feed[i].gs$cell.inputValue);
+                        running.push({
+                            game: Feed[i].gs$cell.col,
+                            input: Feed[i].gs$cell.inputValue
+                        });
                 }
                 
             }
+                 
         }
-        
+       
 
     }
-  
 compile(Name,  running, k);
 });
  
@@ -172,9 +166,17 @@ Object.entries(Rounds['3'].value).forEach(([key, value]) => {
   
  calculate(value.key, value.value);
     
-   var print = "<b>" + value.key + "</b><br/>" + (String(value.value)).replace(/,/g, ', ') + "<br /><br />";
+   var print = "<b>" + String((value.value)[0].input) + "</b><br/>";
+    for(var l in value.value){
+        if(l != 0){
+            print += (String((value.value)[l].input)) + ", "; 
+        }   
+    }
+    
+        print += "<br /><br />";
    out += print;
 });
+    
   $("#r4").html(out);
   out = "";
  Object.entries(Rounds['2'].value).forEach(([key, value]) => {
