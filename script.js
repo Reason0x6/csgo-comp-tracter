@@ -18,9 +18,6 @@ $.get(
          }, {
            field: 'team2',
            title: 'Team 2'
-         }, {
-           field: 'id',
-           title: 'Game ID'
          }],
          data: JSON.parse(db)
     });
@@ -48,10 +45,7 @@ $.get(
          }, {
            field: 'team2',
            title: 'Team 2'
-         }, {
-           field: 'id',
-           title: 'Game ID'
-         }],
+         },],
          data: JSON.parse(outcome)
     });
    
