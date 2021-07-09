@@ -57,15 +57,30 @@ $.get(
    
     }
 );
-var valid = true;
+var valid = 1;
 var i = 1;
-while(valid){
+var Name = [];
+var currRow = "";
+while(valid < 10){
  var data = null
  var voting_url = "https://spreadsheets.google.com/feeds/cells/1notCppP0AXospf6d8bgxpZyjFw6ThDh1is-8rEjCxTQ/" + i + "/public/full?alt=json";
  i++;
  
- data= $.get( voting_url, "json", function(outcome) {console.log(outcome.responseJSON)});
+ data= $.get( voting_url, "json", function(outcome) {
+    Feed = outcome.feed.entry;
+    for(var i = 0; i < 100; i++){
+        if(Feed[i] != null && Feed[i].gs$cell.row != "1"){
+            if(Feed[i].gs$cell.inputValue == "Team 2"){
+                break;
+            }
+            if(Feed[i].gs$cell.col == "2" && !(Name.includes(Feed[i].gs$cell.inputValue))){
+                Name.push(Feed[i].gs$cell.inputValue);
+            }
+        }
+        
+    }
+});
  
- valid = false;
+ valid++;
 }
 
