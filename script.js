@@ -152,7 +152,7 @@ Object.entries(Rounds['2'].value).forEach(([key, value]) => {
 });
   $("#r2").html(out);
  out = "";
- Object.entries(Rounds['3'].value).forEach(([key, value]) => {
+ Object.entries(Rounds['0'].value).forEach(([key, value]) => {
   var x = value.key;
    var print = "<b>" + x + "</b><br/>" + (String(value.value)).replace(/,/g, ', ') + "<br /><br />";
    out += print;
