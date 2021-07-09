@@ -56,6 +56,8 @@ $.get(
      completed = JSON.parse(outcome);
     }
 );
+var scoring = [];
+var points = [];
 var valid = 1;
 var k = 1;
 var Name = [];
@@ -68,10 +70,19 @@ while(valid < 10){
  
  data= $.get( voting_url, "json", function(outcome) {
     var running = [];
+     
+    var keys = [];
     Feed = outcome.feed.entry;
     for(var i = 0; i < 100; i++){
         
-        if(Feed[i] != null && (Feed[i].gs$cell.row != "1")){
+        if(Feed[i] != null ){
+            if(Feed[i].gs$cell.row == "1"){
+                    if(Feed[i].gs$cell.col != "1" && Feed[i].gs$cell.col != "2"){
+                        keys.push(Feed[i].gs$cell.inputValue);
+                        continue;
+                    }
+                 continue;
+               }
             if( Feed[i].gs$cell.inputValue == "noDataParse"){
                 return;
             }
@@ -90,6 +101,7 @@ while(valid < 10){
         }
         
     }
+scoring.push({key: k, value: keys});
 compile(Name,  running, k);
 });
  
@@ -140,25 +152,14 @@ function compile(x,y,i){
 }
 
 setTimeout(function(value){
- var points = [];
+ 
  var out = "";
  var te = 0;
 Object.entries(Rounds['3'].value).forEach(([key, value]) => {
-  var x = value.key;
-    if(points[x] != null){
-        te = points[x];   
-    }else{
-     points.push({
-         key: x,
-         value: 0
-     });
-        te = 0;
-    }
+  
+ calculate(value.key, value.value);
     
-    
-    console.log(value.value);
-    
-   var print = "<b>" + x + "</b><br/>" + (String(value.value)).replace(/,/g, ', ') + "<br /><br />";
+   var print = "<b>" + value.key + "</b><br/>" + (String(value.value)).replace(/,/g, ', ') + "<br /><br />";
    out += print;
 });
   $("#r4").html(out);
@@ -186,3 +187,20 @@ Object.entries(Rounds['3'].value).forEach(([key, value]) => {
   $("#r1").html(out);
 },1000);
 
+
+function calculate(player, tips){
+    
+    if(points[player] != null){
+        te = points[player];   
+    }else{
+     points.push({
+         key: player,
+         value: 0
+     });
+        te = 0;
+    }
+    for(var t in tips){
+        console.log(scoring);
+    }
+    
+}
