@@ -95,29 +95,31 @@ while(valid < 10){
         
             if(Feed[i] != null && Feed[i].gs$cell.row != "1"){
                 
-            if( Feed[i].gs$cell.inputValue == "noDataParse"){
-                return;
-            }
-            if(Feed[i].gs$cell.inputValue == "Team 2"){
-                break;
-            }
-            if(Feed[i].gs$cell.col == "2" && !(Name.includes(Feed[i].gs$cell.inputValue))){
-                Name.push(Feed[i].gs$cell.inputValue);
-               
-            }else{
-                if(!((Feed[i].gs$cell.inputValue).includes("/"))){
-                        running.push({
-                            game: Feed[i].gs$cell.col,
-                            input: Feed[i].gs$cell.inputValue
-                        });
+                if( Feed[i].gs$cell.inputValue == "noDataParse"){
+                    return;
                 }
-                
-            }
+                if(Feed[i].gs$cell.inputValue == "Team 2"){
+                    break;
+                }
+                if(Feed[i].gs$cell.col == "2" && !(Name.includes(Feed[i].gs$cell.inputValue))){
+                    Name.push(Feed[i].gs$cell.inputValue);
+                    running.push({
+                                game: Feed[i].gs$cell.col,
+                                input: Feed[i].gs$cell.inputValue
+                            });
+                }else{
+                    if(!((Feed[i].gs$cell.inputValue).includes("/"))){
+                            running.push({
+                                game: Feed[i].gs$cell.col,
+                                input: Feed[i].gs$cell.inputValue
+                            });
+                    }
+
+                }
                  
         }
-       
-
     }
+
 compile(Name,  running, k);
 });
  
@@ -135,7 +137,7 @@ function compile(x,y,i){
     z = x;
     var w = [];
     w = y;
-    console.log(y);
+   
 
     w.forEach(function(value){
        if(z.includes(value)){
@@ -159,7 +161,7 @@ function compile(x,y,i){
        key: currName,
        value: count
     });
-    console.log(list)
+   
    Rounds.push({
         key: i,
         value: list
@@ -174,45 +176,91 @@ Object.entries(Rounds['3'].value).forEach(([key, value]) => {
   
  calculate(value.key, value.value);
     
-   var print = "<b>" + String((value.value)[0].input) + "</b><br/>";
+   var print = ""
     for(var l in value.value){
-        if(l != 0){
-            print += (String((value.value)[l].input)) + ", "; 
-        }   
+        if(Name.includes(String((value.value)[l].input))){
+        print += "<br/><br/><b>" + String((value.value)[l].input) + "</b><br/>";
+        }else{
+             print += (String((value.value)[l].input)) + ", "; 
+        }
+           
+       
     }
     
         print += "<br /><br />";
-   out += print;
+        out += print;
 });
     
   $("#r4").html(out);
   out = "";
+
  Object.entries(Rounds['2'].value).forEach(([key, value]) => {
-  var x = value.key;
-   var print = "<b>" + x + "</b><br/>" + (String(value.value)).replace(/,/g, ', ') + "<br /><br />";
-   out += print;
+  
+ calculate(value.key, value.value);
+    
+   var print = ""
+    for(var l in value.value){
+        if(Name.includes(String((value.value)[l].input))){
+        print += "<br/><br/><b>" + String((value.value)[l].input) + "</b><br/>";
+        }else{
+             print += (String((value.value)[l].input)) + ", "; 
+        }
+           
+       
+    }
+    
+        print += "<br /><br />";
+        out += print;
 });
+    
   $("#r3").html(out);
- out = "";
- Object.entries(Rounds['1'].value).forEach(([key, value]) => {
-  var x = value.key;
-   var print = "<b>" + x + "</b><br/>" + (String(value.value)).replace(/,/g, ', ') + "<br /><br />";
-   out += print;
+  out = "";
+    Object.entries(Rounds['1'].value).forEach(([key, value]) => {
+  
+ calculate(value.key, value.value);
+    
+   var print = ""
+    for(var l in value.value){
+        if(Name.includes(String((value.value)[l].input))){
+        print += "<br/><br/><b>" + String((value.value)[l].input) + "</b><br/>";
+        }else{
+             print += (String((value.value)[l].input)) + ", "; 
+        }
+           
+       
+    }
+    
+        print += "<br /><br />";
+        out += print;
 });
+    
   $("#r2").html(out);
- 
- out = "";
- Object.entries(Rounds['0'].value).forEach(([key, value]) => {
-  var x = value.key;
-   var print = "<b>" + x + "</b><br/>" + (String(value.value)).replace(/,/g, ', ') + "<br /><br />";
-   out += print;
+  out = "";
+
+Object.entries(Rounds['0'].value).forEach(([key, value]) => {
+  
+ calculate(value.key, value.value);
+    
+   var print = ""
+    for(var l in value.value){
+        if(Name.includes(String((value.value)[l].input))){
+            print += "<br/><br/><b>" + String((value.value)[l].input) + "</b><br/>";
+        }else{
+             print += (String((value.value)[l].input)) + ", "; 
+        }
+    }
+    
+        print += "<br /><br />";
+        out += print;
 });
+    
   $("#r1").html(out);
+  out = "";
 },1000);
 
 
 function calculate(player, tips){
-    
+    console.log(tips);
     
     for(var t in tips){
         if(tips[t].game == "2"){
@@ -222,7 +270,10 @@ function calculate(player, tips){
                      value: 0
                  });
                 }
-            } 
+        }
+        else{
+            
+        }
     }
-    console.log(points);
+    
 }
