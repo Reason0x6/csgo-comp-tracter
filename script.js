@@ -135,9 +135,29 @@ function compile(x,y,i){
 }
 
 setTimeout(function(value){
- var r3 = (Rounds['1'].value);
- $("#r3").html( JSON.stringify(r3['0'].value) );
- $("#r2").html( JSON.stringify((Rounds['1'].value)['0'].value) );
- $("#r1").html( JSON.stringify((Rounds['1'].value)['0'].value) );
+ var rr = [(Rounds['0'].value),(Rounds['1'].value),(Rounds['2'].value)];
+ var out = "";
+ 
+Object.entries(Rounds['2'].value).forEach(([key, value]) => {
+  var x = value.key;
+   var print = "<b>" + x + "</b> " + (String(value.value)).replace(/,/g, ', ') + "<br /><br />";
+   out += print;
+});
+ 
+  $("#r3").html(out);
+  out = "";
+ Object.entries(Rounds['1'].value).forEach(([key, value]) => {
+  var x = value.key;
+   var print = "<b>" + x + "</b> " + (String(value.value)).replace(/,/g, ', ') + "<br /><br />";
+   out += print;
+});
+  $("#r2").html(out);
+ out = "";
+ Object.entries(Rounds['0'].value).forEach(([key, value]) => {
+  var x = value.key;
+   var print = "<b>" + x + "</b> " + (String(value.value)).replace(/,/g, ', ') + "<br /><br />";
+   out += print;
+});
+  $("#r1").html(out);
 },40);
 
