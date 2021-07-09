@@ -20,11 +20,13 @@ table, tr, td {
 }
 
 h4 + p{
- height: 0px; 
-  display: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease-out;
 }
 
 h4:hover + p, p:hover, .col-md-6 > .container:hover > h4 + p{
- height: auto; 
-  display: inline;
+
+  max-height: 1000px;
+    transition: max-height 0.25s ease-in;
 }
