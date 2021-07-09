@@ -18,3 +18,11 @@ tbody{
 table, tr, td {
     border: none;
 }
+
+h4 p{
+ height: 0px; 
+}
+
+h4:hover p{
+ height: auto; 
+}
