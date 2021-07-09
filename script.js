@@ -140,11 +140,24 @@ function compile(x,y,i){
 }
 
 setTimeout(function(value){
- 
+ var points = [];
  var out = "";
- 
+ var te = 0;
 Object.entries(Rounds['3'].value).forEach(([key, value]) => {
   var x = value.key;
+    if(points[x] != null){
+        te = points[x];   
+    }else{
+     points.push({
+         key: x,
+         value: 0
+     });
+        te = 0;
+    }
+    
+    
+    console.log(value.value);
+    
    var print = "<b>" + x + "</b><br/>" + (String(value.value)).replace(/,/g, ', ') + "<br /><br />";
    out += print;
 });
