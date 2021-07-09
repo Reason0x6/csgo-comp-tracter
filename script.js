@@ -134,5 +134,8 @@ function compile(x,y,i){
    });
 }
 
-setTimeout(console.log(Rounds),40);
+setTimeout(function(value){
+
+ $("#r1").innerHTML( Rounds['1'] );
+},40);
 
