@@ -56,7 +56,7 @@ $.get(
      completed = JSON.parse(outcome);
     }
 );
-var scoring = [];
+var keys = [];
 var points = [];
 var valid = 1;
 var k = 1;
@@ -71,7 +71,7 @@ while(valid < 10){
  data= $.get( voting_url, "json", function(outcome) {
     var running = [];
      
-    var keys = [];
+    
     Feed = outcome.feed.entry;
     for(var i = 0; i < 100; i++){
         
@@ -100,8 +100,9 @@ while(valid < 10){
             }
         }
         
-scoring.push({key: k, value: keys});
+
     }
+  
 compile(Name,  running, k);
 });
  
@@ -200,7 +201,7 @@ function calculate(player, tips){
         te = 0;
     }
     for(var t in tips){
-        console.log(scoring);
+        
     }
-    
+    console.log(keys);
 }
