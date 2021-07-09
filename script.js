@@ -158,5 +158,5 @@ Object.entries(Rounds['2'].value).forEach(([key, value]) => {
    out += print;
 });
   $("#r1").html(out);
-},40);
+},100);
 
