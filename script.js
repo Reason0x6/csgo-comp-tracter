@@ -125,8 +125,15 @@ function compile(x,y){
         }
         else{
             count.push(value);
+            
         }
     });
+    
+    list.push({
+       key: currName,
+       value: count
+    });
+    
    Rounds.push({
         key: "Bruh IDK",
         value: list
@@ -134,3 +141,4 @@ function compile(x,y){
 }
 
 setTimeout(console.log(Rounds),40);
+
