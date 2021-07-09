@@ -1,4 +1,6 @@
- var $table = $('#table');
+var $table = $('#table');
+
+var complted = [];
 
 $.get(
     "https://gist.githubusercontent.com/Reason0x6/8cda7cdce846941a4d9956606ad255e2/raw",
@@ -45,10 +47,13 @@ $.get(
          }, {
            field: 'team2',
            title: 'Team 2'
-         },],
+         },{
+          field: 'id',
+           title: 'Game ID'
+         }],
          data: JSON.parse(outcome)
     });
-   
+     completed = JSON.parse(outcome);
     }
 );
 var valid = 1;
