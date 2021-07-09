@@ -64,7 +64,7 @@ while(valid){
  var voting_url = "https://spreadsheets.google.com/feeds/cells/1notCppP0AXospf6d8bgxpZyjFw6ThDh1is-8rEjCxTQ/" + i + "/public/full?alt=json";
  i++;
  
- data= $.get( voting_url, "json", function(outcome) {console.log(outcome.responseJSON.feed)});
+ data= $.get( voting_url, "json", function(outcome) {console.log(outcome.responseJSON)});
  
  valid = false;
 }
