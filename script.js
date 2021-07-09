@@ -140,7 +140,7 @@ setTimeout(function(value){
  
 Object.entries(Rounds['2'].value).forEach(([key, value]) => {
   var x = value.key;
-   var print = "<b>" + x + "</b> " + (String(value.value)).replace(/,/g, ', ') + "<br /><br />";
+   var print = "<b>" + x + "</b> " + (String(value.value)).replace(/,/g, ',<br />') + "<br />";
    out += print;
 });
  
@@ -148,14 +148,14 @@ Object.entries(Rounds['2'].value).forEach(([key, value]) => {
   out = "";
  Object.entries(Rounds['1'].value).forEach(([key, value]) => {
   var x = value.key;
-   var print = "<b>" + x + "</b> " + (String(value.value)).replace(/,/g, ', ') + "<br /><br />";
+   var print = "<b>" + x + "</b> " + (String(value.value)).replace(/,/g, ',<br />') + "<br />";
    out += print;
 });
   $("#r2").html(out);
  out = "";
  Object.entries(Rounds['0'].value).forEach(([key, value]) => {
   var x = value.key;
-   var print = "<b>" + x + "</b> " + (String(value.value)).replace(/,/g, ', ') + "<br /><br />";
+   var print = "<b>" + x + "</b> " + (String(value.value)).replace(/,/g, ',<br />') + "<br />";
    out += print;
 });
   $("#r1").html(out);
