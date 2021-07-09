@@ -58,14 +58,14 @@ $.get(
     }
 );
 var valid = 1;
-var i = 1;
+var k = 1;
 var Name = [];
 var Rounds = [];
 var currRow = "";
 while(valid < 10){
  var data = null
- var voting_url = "https://spreadsheets.google.com/feeds/cells/1notCppP0AXospf6d8bgxpZyjFw6ThDh1is-8rEjCxTQ/" + i + "/public/full?alt=json";
- i++;
+ var voting_url = "https://spreadsheets.google.com/feeds/cells/1notCppP0AXospf6d8bgxpZyjFw6ThDh1is-8rEjCxTQ/" + k + "/public/full?alt=json";
+ k++;
  
  data= $.get( voting_url, "json", function(outcome) {
     var running = [];
@@ -91,7 +91,7 @@ while(valid < 10){
         }
         
     }
-compile(Name,  running, i);
+compile(Name,  running, k);
 });
  
  valid++;
