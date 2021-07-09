@@ -60,6 +60,7 @@ $.get(
 var valid = 1;
 var i = 1;
 var Name = [];
+var Rounds = [];
 var currRow = "";
 while(valid < 10){
  var data = null
@@ -110,10 +111,12 @@ function compile(x,y){
 
 
     w.forEach(function(value){
-                    if(z.includes(value)){
-            
+       if(z.includes(value)){
             if(a != 0){
-                list.push(count);
+
+              list.push({
+               key: currName,
+               value: count});
             }
             count = [];
             currName = value;
@@ -124,6 +127,10 @@ function compile(x,y){
             count.push(value);
         }
     });
-    console.log(list);
-    
+   Rounds.push({
+        key: "Bruh IDK",
+        value: list
+   });
 }
+
+setTimeout(console.log(Rounds),40);
