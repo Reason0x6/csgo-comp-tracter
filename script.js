@@ -91,7 +91,7 @@ while(valid < 10){
         }
         
     }
-compile(Name,  running);
+compile(Name,  running, i);
 });
  
  valid++;
@@ -99,7 +99,7 @@ compile(Name,  running);
 
 
 
-function compile(x,y){
+function compile(x,y,i){
     var currName = "";
     var list = [];
     var count = [];
@@ -135,7 +135,7 @@ function compile(x,y){
     });
     
    Rounds.push({
-        key: "Bruh IDK",
+        key: i,
         value: list
    });
 }
