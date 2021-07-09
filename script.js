@@ -143,21 +143,21 @@ Object.entries(Rounds['3'].value).forEach(([key, value]) => {
    var print = "<b>" + x + "</b><br/>" + (String(value.value)).replace(/,/g, ', ') + "<br /><br />";
    out += print;
 });
-  $("#r1").html(out);
+  $("#r4").html(out);
   out = "";
  Object.entries(Rounds['2'].value).forEach(([key, value]) => {
   var x = value.key;
    var print = "<b>" + x + "</b><br/>" + (String(value.value)).replace(/,/g, ', ') + "<br /><br />";
    out += print;
 });
-  $("#r2").html(out);
+  $("#r3").html(out);
  out = "";
  Object.entries(Rounds['1'].value).forEach(([key, value]) => {
   var x = value.key;
    var print = "<b>" + x + "</b><br/>" + (String(value.value)).replace(/,/g, ', ') + "<br /><br />";
    out += print;
 });
-  $("#r3").html(out);
+  $("#r2").html(out);
  
  out = "";
  Object.entries(Rounds['0'].value).forEach(([key, value]) => {
@@ -165,6 +165,6 @@ Object.entries(Rounds['3'].value).forEach(([key, value]) => {
    var print = "<b>" + x + "</b><br/>" + (String(value.value)).replace(/,/g, ', ') + "<br /><br />";
    out += print;
 });
-  $("#r4").html(out);
+  $("#r1").html(out);
 },1000);
 
