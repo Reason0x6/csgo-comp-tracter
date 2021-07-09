@@ -136,6 +136,8 @@ function compile(x,y,i){
 
 setTimeout(function(value){
 
- $("#r1").innerHTML( Rounds['1'] );
+ $("#r3").html( JSON.stringify((Rounds['1'].value)['0'].value) );
+ $("#r2").html( JSON.stringify((Rounds['1'].value)['0'].value) );
+ $("#r1").html( JSON.stringify((Rounds['1'].value)['0'].value) );
 },40);
 
