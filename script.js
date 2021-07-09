@@ -73,12 +73,24 @@ while(valid < 10){
      
     
     Feed = outcome.feed.entry;
-    for(var i = 0; i < 100; i++){
+     var colcount = 0;
+     for(var len = 0; len <= 25; len++){
+            if(String(Feed[len]).includes("/")){
+               colcount = len;
+                break;
+               }
+     }
+    for(var i = 0; i < (len+1)*5; i++){
         
         if(Feed[i] != null ){
             if(Feed[i].gs$cell.row == "1"){
                     if(Feed[i].gs$cell.col != "1" && Feed[i].gs$cell.col != "2"){
-                        keys.push(Feed[i].gs$cell.inputValue);
+                        
+                        for(var layer in completed){
+                            if(layer.id == Feed[i].gs$cell.inputValue){
+                               
+                            }
+                        }
                         continue;
                     }
                  continue;
