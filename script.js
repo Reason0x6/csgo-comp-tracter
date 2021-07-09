@@ -100,8 +100,8 @@ while(valid < 10){
             }
         }
         
-    }
 scoring.push({key: k, value: keys});
+    }
 compile(Name,  running, k);
 });
  
