@@ -199,7 +199,7 @@ try{
     }
 }
 
-},1000);
+},2000);
 
 
 function calculate(player, tips){
