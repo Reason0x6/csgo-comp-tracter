@@ -77,7 +77,7 @@ while(valid < 10){
     var colcount = 0;
     Feed = outcome.feed.entry;
      
-     for(var len = 0; len <= 25; len++){
+     for(var len = 0; len <= 35; len++){
             if(Feed[len].gs$cell.row != "1"){
                colcount = len;
                 break;
@@ -91,7 +91,7 @@ while(valid < 10){
          }
      }
     overall.push(gm);
-    for(var i = 0; i < (len+1)*5; i++){
+    for(var i = 0; i < (len+1)*6; i++){
         
             if(Feed[i] != null && Feed[i].gs$cell.row != "1"){
                 
