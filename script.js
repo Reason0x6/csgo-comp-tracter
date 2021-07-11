@@ -172,29 +172,9 @@ setTimeout(function(value){
  
  var out = "";
  var te = 0;
-Object.entries(Rounds['3'].value).forEach(([key, value]) => {
-  
- calculate(value.key, value.value);
-    
-   var print = ""
-    for(var l in value.value){
-        if(Name.includes(String((value.value)[l].input))){
-        print += "<br/><br/><b>" + String((value.value)[l].input) + "</b><br/>";
-        }else{
-             print += (String((value.value)[l].input)) + ", "; 
-        }
-           
-       
-    }
-    
-        print += "<br /><br />";
-        out += print;
-});
-    
-  $("#r4").html(out);
-  out = "";
 
- Object.entries(Rounds['2'].value).forEach(([key, value]) => {
+for(var p = 1; p < 10; p++){
+    Object.entries(Rounds[p-1].value).forEach(([key, value]) => {
   
  calculate(value.key, value.value);
     
@@ -213,49 +193,10 @@ Object.entries(Rounds['3'].value).forEach(([key, value]) => {
         out += print;
 });
     
-  $("#r3").html(out);
+  $("#r" + p).html(out);
   out = "";
-    Object.entries(Rounds['1'].value).forEach(([key, value]) => {
-  
- calculate(value.key, value.value);
-    
-   var print = ""
-    for(var l in value.value){
-        if(Name.includes(String((value.value)[l].input))){
-        print += "<br/><br/><b>" + String((value.value)[l].input) + "</b><br/>";
-        }else{
-             print += (String((value.value)[l].input)) + ", "; 
-        }
-           
-       
-    }
-    
-        print += "<br /><br />";
-        out += print;
-});
-    
-  $("#r2").html(out);
-  out = "";
+}
 
-Object.entries(Rounds['0'].value).forEach(([key, value]) => {
-  
- calculate(value.key, value.value);
-    
-   var print = ""
-    for(var l in value.value){
-        if(Name.includes(String((value.value)[l].input))){
-            print += "<br/><br/><b>" + String((value.value)[l].input) + "</b><br/>";
-        }else{
-             print += (String((value.value)[l].input)) + ", "; 
-        }
-    }
-    
-        print += "<br /><br />";
-        out += print;
-});
-    
-  $("#r1").html(out);
-  out = "";
 },1000);
 
 
