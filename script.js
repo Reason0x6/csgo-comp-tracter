@@ -172,8 +172,9 @@ setTimeout(function(value){
  
  var out = "";
  var te = 0;
-try{
+
     for(var p = 1; p < 10; p++){
+        try{
         Object.entries(Rounds[p-1].value).forEach(([key, value]) => {
 
      calculate(value.key, value.value);
