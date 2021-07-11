@@ -172,29 +172,31 @@ setTimeout(function(value){
  
  var out = "";
  var te = 0;
+try{
+    for(var p = 1; p < 10; p++){
+        Object.entries(Rounds[p-1].value).forEach(([key, value]) => {
 
-for(var p = 1; p < 10; p++){
-    Object.entries(Rounds[p-1].value).forEach(([key, value]) => {
-  
- calculate(value.key, value.value);
-    
-   var print = ""
-    for(var l in value.value){
-        if(Name.includes(String((value.value)[l].input))){
-        print += "<br/><br/><b>" + String((value.value)[l].input) + "</b><br/>";
-        }else{
-             print += (String((value.value)[l].input)) + ", "; 
+     calculate(value.key, value.value);
+
+       var print = ""
+        for(var l in value.value){
+            if(Name.includes(String((value.value)[l].input))){
+            print += "<br/><br/><b>" + String((value.value)[l].input) + "</b><br/>";
+            }else{
+                 print += (String((value.value)[l].input)) + ", "; 
+            }
+
+
         }
-           
-       
+
+            print += "<br /><br />";
+            out += print;
+    });
+
+      $("#r" + p).html(out);
+      out = "";
+    }catch(err){
     }
-    
-        print += "<br /><br />";
-        out += print;
-});
-    
-  $("#r" + p).html(out);
-  out = "";
 }
 
 },1000);
