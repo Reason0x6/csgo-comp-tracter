@@ -167,7 +167,7 @@ setTimeout(function(value){
     for(var p = 1; p < 10; p++){
         try{
         Object.entries(Rounds[p-1].value).forEach(([key, value]) => {
-    console.log(value);
+   
      calculate(key, value);
 
        var print = ""
@@ -185,24 +185,24 @@ setTimeout(function(value){
     }
 }
 
-},2000);
+},5000);
 
 
 function calculate(player, tips){
-
     
-    for(var t in tips){
-        if(tips[t].game == "2"){
-            if(points[tips[t].input] == null){
-                 points.push({
-                     key: tips[t].input,
-                     value: 0
-                 });
-                }
-        }
-        else{
-           
+    if(points[player] == null){
+        points[player] = 0;
+    }
+    
+    for(var rr = 0; rr < tips.length; rr++){
+        var result = completed.filter(obj => {
+            return obj.id === tips[rr].gid;
+        });   
+        
+        if(result[0].winner == tips[rr].input){
+            points[player] += 1;
         }
     }
     
+     console.log(points);
 }
