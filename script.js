@@ -181,7 +181,9 @@ setTimeout(function(value){
 
       $("#r" + p).html(out);
       out = "";
+    console.log(points);
     }catch(err){
+            console.log(err);
     }
 }
 
@@ -195,14 +197,18 @@ function calculate(player, tips){
     }
     
     for(var rr = 0; rr < tips.length; rr++){
-        var result = completed.filter(obj => {
-            return obj.id === tips[rr].gid;
-        });   
-        
-        if(result[0].winner == tips[rr].input){
-            points[player] += 1;
-        }
+
+        try{
+            var result = completed.filter(obj => {
+                return obj.id === tips[rr].gid;
+            });   
+         
+            if(result != null && (result[0].winner == tips[rr].input)){
+                points[player] += 1;
+            }
+        }catch(err){}  
+       
     }
     
-     console.log(points);
+    
 }
