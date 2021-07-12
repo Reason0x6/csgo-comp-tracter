@@ -212,5 +212,9 @@ function calculate(player, tips){
        
     }
     
+    points.sort((a, b) => a.value - b.value);
     
+    for(var n in points){
+        $("#name" + (n+1)).html(points[n].key);   
+    }
 }
