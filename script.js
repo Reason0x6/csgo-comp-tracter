@@ -107,7 +107,7 @@ while(valid < 10){
                         
                             running.push({
                                 game: Feed[i].gs$cell.col,
-                                gid: gm[i-1],
+                                gid: gm[parseInt(Feed[i].gs$cell.col)],
                                 input: Feed[i].gs$cell.inputValue
                             });
                     }
@@ -150,7 +150,7 @@ function compile(x,y,i){
             
         }
         else{
-            count.push(value);
+           console.log(value);
             
         }
     });
