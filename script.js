@@ -152,7 +152,7 @@ function compile(x,y,i){
      
         
     });
-    console.log(list);
+   
    Rounds.push({
         key: i,
         value: list
@@ -167,22 +167,15 @@ setTimeout(function(value){
     for(var p = 1; p < 10; p++){
         try{
         Object.entries(Rounds[p-1].value).forEach(([key, value]) => {
-
-     calculate(value.key, value);
+    console.log(value);
+     calculate(key, value);
 
        var print = ""
-        for(var l in value.value){
-            if(Name.includes(String((value.value)[l].input.input))){
-            print += "<br/><br/><b>" + String((value.value)[l].input) + "</b><br/>";
-            }else{
-              
-                 print += (String((value.value)[l].input)) + ", "; 
-            }
-
-
+      print += "<br/><br/><b>" + String(key) + "</b><br/>";
+        for(var l in value){
+                 print += (value[l].input) + " | "; 
         }
 
-            print += "<br /><br />";
             out += print;
     });
 
