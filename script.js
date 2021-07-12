@@ -76,21 +76,16 @@ while(valid < 10){
      
     var colcount = 0;
     Feed = outcome.feed.entry;
-     
+      var gm = []
      for(var len = 0; len <= 35; len++){
             if(Feed[len].gs$cell.row != "1"){
                colcount = len;
                 break;
                }
+         gm.push(Feed[len].gs$cell.inputValue);
      }
-     var gm = []
-     for(var i = 1; i <= len; i++){
-         
-         if(Feed[i].gs$cell.col != "1" && Feed[i].gs$cell.col != "2"){
-                gm.push(Feed[i].gs$cell.inputVaue);
-         }
-     }
-    overall.push(gm);
+    
+     console.log(gm);
     for(var i = 0; i < (len+1)*6; i++){
         
             if(Feed[i] != null && Feed[i].gs$cell.row != "1"){
@@ -109,8 +104,10 @@ while(valid < 10){
                             });
                 }else{
                     if(!((Feed[i].gs$cell.inputValue).includes("/"))){
+                        
                             running.push({
                                 game: Feed[i].gs$cell.col,
+                                gid: gm[i-1],
                                 input: Feed[i].gs$cell.inputValue
                             });
                     }
@@ -140,6 +137,7 @@ function compile(x,y,i){
    
 
     w.forEach(function(value){
+        
        if(z.includes(value)){
             if(a != 0){
               list.push({
@@ -159,6 +157,7 @@ function compile(x,y,i){
     
     list.push({
        key: currName,
+       id: "" ,
        value: count
     });
    
