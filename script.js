@@ -216,7 +216,7 @@ function calculate(player, tips){
                 }
         }
         else{
-            
+           
         }
     }
     
