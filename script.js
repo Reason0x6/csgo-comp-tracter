@@ -48,8 +48,8 @@ $.get(
            field: 'team2',
            title: 'Team 2'
          },{
-          field: 'id',
-           title: 'Game ID'
+          field: 'winner',
+           title: 'Winner'
          }],
          data: JSON.parse(outcome)
     });
