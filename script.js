@@ -72,6 +72,7 @@ while(valid < 10){
  k++;
  
  data= $.get( voting_url, "json", function(outcome) {
+ 
     var running = [];
      
     var colcount = 0;
@@ -85,7 +86,7 @@ while(valid < 10){
          gm.push(Feed[len].gs$cell.inputValue);
      }
     
-     console.log(gm);
+  
     for(var i = 0; i < (len+1)*6; i++){
         
             if(Feed[i] != null && Feed[i].gs$cell.row != "1"){
@@ -107,7 +108,7 @@ while(valid < 10){
                         
                             running.push({
                                 game: Feed[i].gs$cell.col,
-                                gid: gm[parseInt(Feed[i].gs$cell.col)],
+                                gid: gm[parseInt(Feed[i].gs$cell.col)-1],
                                 input: Feed[i].gs$cell.inputValue
                             });
                     }
@@ -128,39 +129,30 @@ compile(Name,  running, k);
 function compile(x,y,i){
     var currName = "";
     var list = [];
-    var count = [];
+    var count = {};
     var a = 0;
     var z = [];
-    z = x;
+   
     var w = [];
-    w = y;
    
+   
+    y.forEach(function(value){
+        count = [];
+       var obj = value;
+       if(x.includes(value.input)){
+         currName = value.input;
+          }else{
+              if(list[currName] == null){
+                 list[currName] = [value];   
+              }else{  
+              list[currName].push(value);
+              }
+          }
 
-    w.forEach(function(value){
+     
         
-       if(z.includes(value)){
-            if(a != 0){
-              list.push({
-               key: currName,
-               value: count});
-            }
-            count = [];
-            currName = value;
-            a++;
-            
-        }
-        else{
-           console.log(value);
-            
-        }
     });
-    
-    list.push({
-       key: currName,
-       id: "" ,
-       value: count
-    });
-   
+    console.log(list);
    Rounds.push({
         key: i,
         value: list
@@ -176,13 +168,14 @@ setTimeout(function(value){
         try{
         Object.entries(Rounds[p-1].value).forEach(([key, value]) => {
 
-     calculate(value.key, value.value);
+     calculate(value.key, value);
 
        var print = ""
         for(var l in value.value){
-            if(Name.includes(String((value.value)[l].input))){
+            if(Name.includes(String((value.value)[l].input.input))){
             print += "<br/><br/><b>" + String((value.value)[l].input) + "</b><br/>";
             }else{
+              
                  print += (String((value.value)[l].input)) + ", "; 
             }
 
@@ -203,7 +196,7 @@ setTimeout(function(value){
 
 
 function calculate(player, tips){
-    console.log(tips);
+
     
     for(var t in tips){
         if(tips[t].game == "2"){
