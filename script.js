@@ -204,18 +204,13 @@ function calculate(player, tips){
             if(result != null && (result[0].winner == tips[rr].input)){
                 points[player] += 1;
             }else{
-             console.log("Expected: " + result[0].winner + ", Received: " +  tips[rr].input);
+             
             }
+
         }catch(err){}  
        
     }
     
-    points = points.sort();
-    var n = 0;
-    for (const [key, value] of Object.entries(points)) {
-         $("#name" + (n+1)).html(key);   
-         $("#points" + (n+1)).html(value);   
-        n++;
-        }
+    
     
 }
