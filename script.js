@@ -181,9 +181,7 @@ setTimeout(function(value){
 
       $("#r" + p).html(out);
       out = "";
-    console.log(points);
     }catch(err){
-            console.log(err);
     }
 }
 
@@ -212,9 +210,12 @@ function calculate(player, tips){
        
     }
     
-    points.sort((a, b) => a.value - b.value);
+    points = points.sort();
+    var n = 0;
+    for (const [key, value] of Object.entries(points)) {
+         $("#name" + (n+1)).html(key);   
+         $("#points" + (n+1)).html(value);   
+        n++;
+        }
     
-    for(var n in points){
-        $("#name" + (n+1)).html(points[n].key);   
-    }
 }
